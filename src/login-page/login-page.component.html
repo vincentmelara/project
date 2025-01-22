@@ -1,0 +1,46 @@
+    <!--ring div starts here-->
+  <div class="outside">
+    <div class="ring">
+        <i style="--clr:#042453;"></i>
+        <i style="--clr:#9d7406;"></i>
+        <i style="--clr:#eef2f2;"></i>
+        <form class="login">
+            <h2>CityScope AI</h2>
+            <div class="inputBx">
+              <p-floatLabel>
+                <input
+                pInputText
+                id="username"
+                [(ngModel)]="value" />
+                <label for="username">Username</label>
+            </p-floatLabel>
+            </div>
+            <div class="inputBx">
+              <p-floatLabel>
+                <p-password>
+                </p-password>
+                <label for="password">Password</label>
+              </p-floatLabel>
+            </div>
+            <div class="inputBx">
+              <button
+                pButton
+                pRipple
+                label="Login"
+                (click)="goToDash()">
+              </button>
+            </div>
+            <div class="inputBx">
+              <button
+                pButton
+                pRipple
+                label="Sign up">
+              </button>
+          </div>
+            <div class="links">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+  </div>
+    <!--ring div ends here-->
