@@ -4,7 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeaderComponent } from "../header/header.component";
 import { LoginPageComponent } from "../login-page/login-page.component";
-
+import { CommonModule } from '@angular/common';
+import { appConfig } from './app.config';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,7 +14,9 @@ import { LoginPageComponent } from "../login-page/login-page.component";
     ButtonModule,
     DashboardComponent,
     HeaderComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    CommonModule,
+
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

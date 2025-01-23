@@ -8,10 +8,6 @@ import { RippleModule } from 'primeng/ripple';
 import { PrimeNGConfig } from 'primeng/api';
 import { Router } from '@angular/router';
 
-
-
-
-
 @Component({
   selector: 'app-login-page',
   standalone: true,

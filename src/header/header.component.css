@@ -1,0 +1,40 @@
+.container {
+  justify-content: center;
+  align-items: center;
+}
+
+p-card {
+  width: 100%;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.timestamp {
+  font-size: 1rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+.p-card .p-card-body {
+  padding: 0 !important;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  border-radius: 50%; /* Optional: Makes the image circular */
+}
+

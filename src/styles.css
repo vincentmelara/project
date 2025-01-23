@@ -1,40 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeng/resources/themes/lara-dark-indigo/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 
-*{
 
-}
 body {
-  background-color: #222222; /* PrimeNG theme variable for background */
   margin: 0;
+  height: 100vh
 
 }
 
-/* Change background color of p-card */
-.header .p-card {
-  background-color: #0004ff; /* Replace with your desired color */
-  color: #333; /* Text color */
-  border: 1px solid #0004ff; /* Optional: Border color */
-  flex-shrink: 0; /* Prevent shrinking */
-  border-radius: 0px 0px 4px 4px;
-  border: 1px solid;
-
+.header-card .p-card .p-card-body {
+  padding: 0;
 }
 
-.dash .p-card {
-  background-color: #ffcc00; /* Replace with your desired color */
-  color: #333; /* Text color */
-  border: 1px solid;
-  height: 100vh;
+.header-card .p-card{
+  border-radius: 0;
 }
 
-.app-container {
-  display: block;
-  flex-direction: column; /* Stack children vertically */
-  height: 100vh; /* Full viewport height */
-}
-app-login-page {
-  overflow: visible !important;
+.header-card .p-card .p-card-content {
+  padding: 0.4rem 0;
 }
 
+.title .p-image{
+  border-radius: 12px;
+}
+
+.mb-5.p-splitter.p-component.p-splitter-horizontal {
+    height: 100vh;
+}
+.p-tabview-nav {
+  display: inline-flex;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+}
+
+
+.p-tabview .p-tabview-nav li {
+  margin-right: 0;
+  margin-top: 2px;
+}

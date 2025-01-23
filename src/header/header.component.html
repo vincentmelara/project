@@ -1,3 +1,22 @@
-<div class="header">
-  <p-card >header works!</p-card>
+<div class="container">
+  <p-card class="header-card">
+    <div class="card-content">
+      <span class="timestamp">{{ currentTime }}</span>
+
+      <!-- Logo and Title -->
+      <div class="logo-title">
+        <p-image
+          src="..\assets\CityScope logo.png"
+          alt="CityScope Logo"
+          width="50"
+          height="50"
+          class="logo"
+        ></p-image>
+        <h2 class="title">CityScope AI</h2>
+      </div>
+
+      <!-- Logout Button -->
+      <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+    </div>
+  </p-card>
 </div>

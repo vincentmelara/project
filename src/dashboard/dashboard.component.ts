@@ -4,6 +4,9 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { SplitterModule } from 'primeng/splitter';
 import { CardModule } from 'primeng/card';
 import { HeaderComponent } from "../header/header.component";
+import { SidebarComponent } from "../sidebar/sidebar.component";
+import { TabViewModule } from 'primeng/tabview';
+import { SettingsPageComponent } from "../settings-page/settings-page.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +15,10 @@ import { HeaderComponent } from "../header/header.component";
     TabMenuModule,
     SplitterModule,
     CardModule,
-    HeaderComponent
+    HeaderComponent,
+    SidebarComponent,
+    TabViewModule,
+    SettingsPageComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
