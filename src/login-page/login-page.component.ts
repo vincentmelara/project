@@ -48,21 +48,21 @@ export class LoginPageComponent {
         this.router.navigate(['/dashboard']);
       }, 300); // Delay of 2 seconds (2000 ms)
     }
-    
+
     async login() {
-      try {
-        const userCredential = await signInWithEmailAndPassword(
-          this.firebaseService.auth,
-          this.email,
-          this.password
-        );
-        console.log('User logged in:', userCredential);
-  
+      // try {
+      //   const userCredential = await signInWithEmailAndPassword(
+      //     this.firebaseService.auth,
+      //     this.email,
+      //     this.password
+      //   );
+      //   console.log('User logged in:', userCredential);
+
         // Navigate to the dashboard on successful login
         this.router.navigate(['/dashboard']);
-      } catch (error) {
-        this.errorMessage = 'Invalid credentials. Please try again.';
-        console.error('Login error:', error);
-      }
+      // } catch (error) {
+      //   this.errorMessage = 'Invalid credentials. Please try again.';
+      //   console.error('Login error:', error);
+      // }
     }
 }
