@@ -16,7 +16,9 @@
       </div>
 
       <!-- Logout Button -->
-      <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+      <p-inputSwitch
+      [(ngModel)]="checked"
+      [ngModelOptions]="{standalone: true}"></p-inputSwitch>
     </div>
   </p-card>
 </div>

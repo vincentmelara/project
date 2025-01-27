@@ -1,4 +1,7 @@
 
+* {
+
+}
 .outside {
   display: flex;
   justify-content: center;
@@ -9,8 +12,8 @@
 
 .ring {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,4 +120,12 @@
 
 .inputBx p-password .p-password-icon {
   color: #9d7406; /* Toggle icon color */
+}
+
+.login-button {
+  padding-right: .2rem;
+}
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
 }
