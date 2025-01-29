@@ -5,6 +5,7 @@ import { HeaderComponent } from "../header/header.component";
 import { LoginPageComponent } from "../login-page/login-page.component";
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { ButtonModule } from 'primeng/button';
     HeaderComponent,
     LoginPageComponent,
     CommonModule,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

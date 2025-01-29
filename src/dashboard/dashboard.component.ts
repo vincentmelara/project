@@ -18,7 +18,7 @@ import { SettingsPageComponent } from "../settings-page/settings-page.component"
     HeaderComponent,
     SidebarComponent,
     TabViewModule,
-    SettingsPageComponent
+    SettingsPageComponent,
 ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
