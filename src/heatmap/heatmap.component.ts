@@ -8,7 +8,7 @@ import Search from '@arcgis/core/widgets/Search';
 import Legend from '@arcgis/core/widgets/Legend';
 import Expand from '@arcgis/core/widgets/Expand';
 import Graphic from '@arcgis/core/Graphic';
-import { Button } from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
 import { zipCodeData } from '../assets/data/ZipCodeData'; // Replace with the path to your zip code data
 import Point from '@arcgis/core/geometry/Point'; // Import Point explicitly
 import Basemap from '@arcgis/core/Basemap'; // ✅ Ensure Basemap is imported
@@ -19,7 +19,7 @@ import Basemap from '@arcgis/core/Basemap'; // ✅ Ensure Basemap is imported
   standalone: true,
   imports: [
     DropdownModule,
-    Button
+    ButtonModule
   ],
   templateUrl: './heatmap.component.html',
   styleUrl: './heatmap.component.css'
