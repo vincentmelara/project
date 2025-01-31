@@ -13,9 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     RouterOutlet,
     ButtonModule,
-    DashboardComponent,
-    HeaderComponent,
-    LoginPageComponent,
     CommonModule,
     HttpClientModule
   ],
