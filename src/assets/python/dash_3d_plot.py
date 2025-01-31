@@ -4,9 +4,9 @@
 # Date Created: 2024-09-13
 #
 # Description: This Dash app connects to a MySQL database to retrieve demographic data
-#              from the 'census_zipcode_demographics_2022' table. It performs t-SNE 
-#              dimensionality reduction on the data and creates a 3D visualization 
-#              using Plotly. The visualization shows CBU ZIP codes in light blue and 
+#              from the 'census_zipcode_demographics_2022' table. It performs t-SNE
+#              dimensionality reduction on the data and creates a 3D visualization
+#              using Plotly. The visualization shows CBU ZIP codes in light blue and
 #              the 50 most demographically similar non-CBU ZIP codes in yellow.
 #
 # Usage: Run this Dash app to generate the 3D t-SNE plot. Ensure the environment
@@ -161,15 +161,15 @@ app.layout = html.Div([
         # Sidebar with filter options
         html.Div([
             html.Button("☰", id="toggle-button", n_clicks=0, style={
-                'position': 'absolute', 
-                'top': '10px', 
+                'position': 'absolute',
+                'top': '10px',
                 'left': '10px',
-                'font-size': '24px', 
-                'cursor': 'pointer', 
-                'background-color': 'lightgray', 
-                'z-index': '2',
+                'fontSize': '24px',
+                'cursor': 'pointer',
+                'backgroundColor': 'lightgray',
+                'zIndex': '2',
             }),
-            
+
             html.Div([
 
 
@@ -186,7 +186,7 @@ app.layout = html.Div([
                         ],
                         value='generalized'  # Default value
                     )
-                ], style={'margin-top': '3vw'}),  # Adjust spacing as needed
+                ], style={'marginTop': '3vw'}),  # Adjust spacing as needed
                 html.Div([
                     html.Label("Select Feature to Filter By:"),
                     dcc.Dropdown(
@@ -200,7 +200,7 @@ app.layout = html.Div([
                         ],
                         value='Population'  # Default value
                     )
-                ], style={'margin-top': '3vw'}),  # Add spacing above the dropdown
+                ], style={'marginTop': '3vw'}),  # Add spacing above the dropdown
 
                 html.Div([
                     html.Label(id='slider-label', children="Filter by Population Range:"),
@@ -212,18 +212,18 @@ app.layout = html.Div([
                         marks={int(i): str(int(i)) for i in np.linspace(0, 1000000, num=10)},
                         value=[0, 1000000]
                     )
-                ], style={'margin-top': '20px'}),  # Add spacing above the slider
-                
+                ], style={'marginTop': '20px'}),  # Add spacing above the slider
+
             ], id="sidebar", style={
-                'width': '250px', 
-                'height': '100%', 
+                'width': '250px',
+                'height': '100%',
                 'position': 'absolute',
-                'top': '0', 
-                'left': '-250px', 
-                'background-color': '#f8f9fa',
-                'padding': '10px', 
-                'transition': '0.3s', 
-                'z-index': '1', 
+                'top': '0',
+                'left': '-250px',
+                'backgroundColor': '#f8f9fa',
+                'padding': '10px',
+                'transition': '0.3s',
+                'zIndex': '1',
                 'overflow': 'auto'
             }),
         ]),
@@ -231,7 +231,7 @@ app.layout = html.Div([
         # Main content (Graph)
         html.Div([
             dcc.Graph(id='tsne-plot', figure=create_3d_plot(cbu_coords, non_cbu_coords), style={'height': '90vh'})
-        ], id='graph-container', style={'position': 'relative', 'padding-left': '10px'})
+        ], id='graph-container', style={'position': 'relative', 'paddingLeft': '10px'})
     ])
 ])
 
@@ -246,7 +246,7 @@ app.layout = html.Div([
 def update_slider(selected_feature):
     # Fields that are percentage-based
     percentage_fields = ['Bachelor_Degree', 'Unemployment']
-    
+
     # Format values in thousands for these fields
     fields_in_thousands = ['Population', 'Median_Income', 'Median_Home_Value']
 
@@ -269,7 +269,7 @@ def update_slider(selected_feature):
             marks = {int(i): str(int(i)) for i in np.linspace(min_val, max_val, num=10)}
 
         label = f" {selected_feature.replace('_', ' ')} (in thousands):"
-    
+
     return min_val, max_val, value, marks, label
 
 # Callback to update the graph based on the selected feature and slider range
@@ -309,22 +309,22 @@ def update_3d_graph(selected_dimension, selected_feature, feature_range):
 
     # Apply feature-based filtering
     filtered_cbu_data = cbu_census_data[
-        (cbu_census_data[selected_feature] >= feature_range[0]) & 
+        (cbu_census_data[selected_feature] >= feature_range[0]) &
         (cbu_census_data[selected_feature] <= feature_range[1])
     ]
     filtered_non_cbu_data = top_50_non_cbu_census_data[
-        (top_50_non_cbu_census_data[selected_feature] >= feature_range[0]) & 
+        (top_50_non_cbu_census_data[selected_feature] >= feature_range[0]) &
         (top_50_non_cbu_census_data[selected_feature] <= feature_range[1])
     ]
 
     # Generate updated coordinates
-    filtered_cbu_coords = np.column_stack((x_data[:len(filtered_cbu_data)], 
-                                           y_data[:len(filtered_cbu_data)], 
+    filtered_cbu_coords = np.column_stack((x_data[:len(filtered_cbu_data)],
+                                           y_data[:len(filtered_cbu_data)],
                                            z_data[:len(filtered_cbu_data)]))
-    filtered_non_cbu_coords = np.column_stack((x_data[len(filtered_cbu_data):len(filtered_cbu_data) + len(filtered_non_cbu_data)], 
-                                               y_data[len(filtered_cbu_data):len(filtered_cbu_data) + len(filtered_non_cbu_data)], 
+    filtered_non_cbu_coords = np.column_stack((x_data[len(filtered_cbu_data):len(filtered_cbu_data) + len(filtered_non_cbu_data)],
+                                               y_data[len(filtered_cbu_data):len(filtered_cbu_data) + len(filtered_non_cbu_data)],
                                                z_data[len(filtered_cbu_data):len(filtered_cbu_data) + len(filtered_non_cbu_data)]))
-    
+
         # Create the plot figure and update axis titles
     figure = create_3d_plot(filtered_cbu_coords, filtered_non_cbu_coords)
     figure.update_layout(
@@ -347,16 +347,16 @@ def toggle_sidebar(n_clicks, sidebar_style, graph_style):
     if n_clicks % 2 == 1:
         # Show sidebar and move graph to the right
         sidebar_style["left"] = "0vw"
-        graph_style["padding-left"] = "0vw"  # Move graph to the right when sidebar is open
-        graph_style["padding-top"] = "2.5vw"  # Add padding-top when sidebar is open
+        graph_style["paddingLeft"] = "0vw"  # Move graph to the right when sidebar is open
+        graph_style["paddingTop"] = "2.5vw"  # Add paddingTop when sidebar is open
         sidebar_style["display"] = "block"  # Show the graph
 
 
     else:
         # Hide sidebar and reset graph position
         # sidebar_style["left"] = "-17vw"
-        graph_style["padding-left"] = "0vw"  # Reset padding when sidebar is closed
-        graph_style["padding-top"] = "2.5vw"  # Add padding-top when sidebar is open
+        graph_style["paddingLeft"] = "0vw"  # Reset padding when sidebar is closed
+        graph_style["paddingTop"] = "2.5vw"  # Add paddingTop when sidebar is open
         sidebar_style["display"] = "none"  # Hide the graph
 
     return sidebar_style, graph_style

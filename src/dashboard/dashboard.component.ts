@@ -7,6 +7,7 @@ import { HeaderComponent } from "../header/header.component";
 import { SidebarComponent } from "../sidebar/sidebar.component";
 import { TabViewModule } from 'primeng/tabview';
 import { SettingsPageComponent } from "../settings-page/settings-page.component";
+import { HeatmapComponent } from "../heatmap/heatmap.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -19,6 +20,7 @@ import { SettingsPageComponent } from "../settings-page/settings-page.component"
     SidebarComponent,
     TabViewModule,
     SettingsPageComponent,
+    HeatmapComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']

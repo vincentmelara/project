@@ -7,7 +7,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "start": "concurrently \"ng serve\" \"python dash_2d_plot.py\""
-
   },
   "private": true,
   "dependencies": {

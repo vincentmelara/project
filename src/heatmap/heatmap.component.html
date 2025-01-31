@@ -1,0 +1,37 @@
+<div class="controls">
+  <p-dropdown
+    [options]="colorSchemeOptions"
+    (onChange)="updateHeatmapRenderer()"
+    placeholder="Select Color Scheme"
+  ></p-dropdown>
+
+  <p-dropdown
+    [options]="basemapOptions"
+    (onChange)="updateBasemap()"
+    placeholder="Select Basemap"
+  ></p-dropdown>
+
+  <!-- <mat-slider
+    min="5"
+    max="30"
+    [(ngModel)]="blurRadius"
+    (input)="updateHeatmapRenderer()"
+  ></mat-slider>
+  <label>Blur Radius: {{ blurRadius }}</label>
+
+  <mat-slider
+    min="50"
+    max="400"
+    [(ngModel)]="maxPixelIntensity"
+    (input)="updateHeatmapRenderer()"
+  ></mat-slider>
+  <label>Max Pixel Intensity: {{ maxPixelIntensity }}</label> -->
+
+  <button
+  pButton
+  pRipple
+  (click)="resetDefaults()">
+    Reset to Default
+  </button>
+</div>
+<div id="heatmapView" style="height: 500px; width: 100%;"></div>

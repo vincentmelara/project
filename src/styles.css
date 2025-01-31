@@ -6,9 +6,10 @@
 
 body {
   margin: 0;
-  height: 100vh
-
+  height: 100vh;
+  overflow: hidden;
 }
+
 
 .header-card .p-card .p-card-body {
   padding: 0;
