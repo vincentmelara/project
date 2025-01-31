@@ -14,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterOutlet,
     ButtonModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    HeaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

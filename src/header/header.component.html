@@ -15,10 +15,12 @@
         <h2 class="title">CityScope AI</h2>
       </div>
 
-      <!-- Logout Button -->
+      <!-- Theme switch -->
       <p-inputSwitch
-      [(ngModel)]="checked"
-      [ngModelOptions]="{standalone: true}"></p-inputSwitch>
+        class="theme-switch"
+        [(ngModel)]="checked"
+        (click)="onThemeChange(checked ? 'dark' : 'light')">
+      </p-inputSwitch>
     </div>
   </p-card>
 </div>

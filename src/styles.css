@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeng/resources/themes/lara-dark-indigo/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
@@ -67,4 +66,24 @@ body {
   border: 1px solid #818cf8;
 }
 
+.theme-switch .p-inputswitch {
+  width: 6rem;
+  height: 3.5rem;
+
+  transform: scale(0.65); /* Scale down to 80% */
+}
+
+.theme-switch .p-inputswitch-slider::before {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: -1.8rem;
+  left: 0.1rem;
+  background: transparent;
+  font-size: 2.5rem;
+  content: "☀️";
+}
+.theme-switch .p-inputswitch-checked .p-inputswitch-slider::before {
+  content: "🌑";
+  transform: translateX(2.3rem);
+}
 
