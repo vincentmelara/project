@@ -1,0 +1,45 @@
+<div class="dark-background">
+  <!-- <app-enrollment-nav-bar></app-enrollment-nav-bar> -->
+
+  <div class="enrollment-container">
+    <p-card class="enrollment-card">
+      <h2 class="enrollment-title">Enrollment Predictor</h2>
+
+      <p *ngIf="comparisonResult" class="comparison-result">{{ comparisonResult }}</p>
+
+      <div *ngIf="loading" class="loading-screen">
+        <p-progressSpinner></p-progressSpinner>
+        <p>Loading enrollment data...</p>
+      </div>
+
+      <div *ngIf="error" class="error-screen">
+        <h2>Error</h2>
+        <p>{{ error }}</p>
+      </div>
+
+      <div *ngIf="!loading && !error">
+        <div class="chart-container">
+          <ngx-charts-line-chart
+            [results]="combinedData"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="true"
+            [showGridLines]="true"
+            [scheme]="'cool'"
+            [autoScale]="true"
+            (select)="debouncedGenerateComparison($event)">
+          </ngx-charts-line-chart>
+        </div>
+
+        <div *ngIf="showModal" class="modal-overlay" (click)="showModal = false">
+          <div class="modal-content" (click)="$event.stopPropagation()">
+            <h3>Enrollment Comparison</h3>
+            <p *ngIf="comparisonLoading">Loading...</p>
+            <p *ngIf="!comparisonLoading">{{ comparisonResult }}</p>
+            <button (click)="showModal = false" class="close-button">Close</button>
+          </div>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>

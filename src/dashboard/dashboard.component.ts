@@ -8,6 +8,7 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
 import { TabViewModule } from 'primeng/tabview';
 import { SettingsPageComponent } from "../settings-page/settings-page.component";
 import { HeatmapComponent } from "../heatmap/heatmap.component";
+import { EnrollmentPredictorComponent } from "../enrollment-predictor/enrollment-predictor.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,8 @@ import { HeatmapComponent } from "../heatmap/heatmap.component";
     SidebarComponent,
     TabViewModule,
     SettingsPageComponent,
-    HeatmapComponent
+    HeatmapComponent,
+    EnrollmentPredictorComponent
 ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
