@@ -8,7 +8,7 @@ import { HeaderComponent } from "../header/header.component";
 import { SidebarComponent } from "../sidebar/sidebar.component";
 import { TabViewModule } from 'primeng/tabview';
 import { SettingsPageComponent } from "../settings-page/settings-page.component";
-import { HeatmapComponent } from "../heatmap/heatmap.component";
+import { HeatmapPageComponent } from "../heatmap/heatmap-page.component";
 import { IframeService } from '../services/iframe.service';
 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -24,7 +24,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
     SidebarComponent,
     TabViewModule,
     SettingsPageComponent,
-    HeatmapComponent,
+    HeatmapPageComponent,
     ButtonModule
 ],
   templateUrl: './dashboard.component.html',

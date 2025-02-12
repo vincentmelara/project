@@ -1,0 +1,18 @@
+<div class="controls">
+  <p-dropdown placeholder="Select Color Scheme"></p-dropdown>
+
+  <p-dropdown placeholder="Select Basemap"></p-dropdown>
+
+  <button pButton pRipple (click)="resetMap()">Reset Map</button>
+
+  <button pButton pRipple (click)="switchMap()">Switch Map</button>
+</div>
+
+<!-- Conditional Rendering of Maps -->
+<div id="heatmapView" *ngIf="activeMap === 'heatmap'" style="height: 500px; width: 100%;">
+  <app-heatmap></app-heatmap>
+</div>
+
+<div id="voronoiView" *ngIf="activeMap === 'voronoi'" style="height: 500px; width: 100%;">
+  <app-voronoi-map></app-voronoi-map>
+</div>
