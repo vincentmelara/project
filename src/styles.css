@@ -87,3 +87,7 @@ body {
   transform: translateX(2.3rem);
 }
 
+.p-splitter-panel-nested {
+  display: flow;
+  min-width: 0;
+}
