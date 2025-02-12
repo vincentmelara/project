@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ButtonModule } from 'primeng/button';
+import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { SplitterModule } from 'primeng/splitter';
@@ -8,6 +9,9 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
 import { TabViewModule } from 'primeng/tabview';
 import { SettingsPageComponent } from "../settings-page/settings-page.component";
 import { HeatmapComponent } from "../heatmap/heatmap.component";
+import { IframeService } from '../services/iframe.service';
+
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,15 +24,18 @@ import { HeatmapComponent } from "../heatmap/heatmap.component";
     SidebarComponent,
     TabViewModule,
     SettingsPageComponent,
-    HeatmapComponent
+    HeatmapComponent,
+    ButtonModule
 ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
   menuItems: MenuItem[];
+  iframeSrc: SafeResourceUrl;
 
-  constructor() {
+
+  constructor(private iframeService: IframeService, private sanitizer: DomSanitizer) {
     // Define tabs for the top tab menu
     this.menuItems = [
       {
@@ -53,5 +60,16 @@ export class DashboardComponent {
         }
       }
     ];
+    this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl('http://127.0.0.1:8050/');
+  }
+  ngOnInit() {
+    this.iframeService.currentSrc.subscribe(src => {
+      this.iframeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(src);
+    });
+  }
+
+
+  changePort(port: number) {
+    this.iframeSrc = `http://127.0.0.1:${port}/`;
   }
 }

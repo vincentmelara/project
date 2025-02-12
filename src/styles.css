@@ -48,7 +48,7 @@ body {
   padding-right: 1.2rem;
 }
 
-.p-button {
+.login-button .p-button {
   color: white;
   border: 1px solid #042453;
   background-color: #042453;
